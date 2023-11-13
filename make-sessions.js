@@ -46,7 +46,7 @@ async function run({ client, db, collection}) {
         const docs = await collection
           .find({ /* user's filter goes here */ }, { session })
           .sort({ _id: 1 })
-          .limit(3)
+          .limit(10)
           .toArray();
 
         const ids = docs.map((doc) => doc.id);
