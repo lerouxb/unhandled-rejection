@@ -61,7 +61,7 @@ async function run({ client, db, collection}) {
     }
     console.log(await client.db('admin').command(command));
 
-    await pause(); // just pause before killing the same session again
+    //await pause(); // just pause before killing the same session again
   }
 }
 
