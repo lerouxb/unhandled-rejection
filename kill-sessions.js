@@ -59,7 +59,7 @@ async function run({ client, db, collection}) {
     const command = {
       killSessions: [EJSON.parse(latestSession) ]
     }
-    await client.db('admin').command(command);
+    console.log(await client.db('admin').command(command));
 
     await pause(); // just pause before killing the same session again
   }

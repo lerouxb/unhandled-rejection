@@ -36,6 +36,7 @@ function pause() {
 
 async function run({ client, db, collection}) {
   while (true) {
+    const startTime = Date.now();
     try {
       const session = client.startSession();
       const sessionJSON = EJSON.stringify(session.id);
@@ -81,6 +82,9 @@ async function run({ client, db, collection}) {
       console.log('reject');
       console.error(err.stack);
     }
+    console.log('elapsed', Date.now() - startTime);
+
+    // this is just here to slow things down so you can read the output. the fact that it is semi-random is vestigial
     await pause();
   }
 }
